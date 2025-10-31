@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IamTheCode - Code for Change</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IamTheCode - Code for Change</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<!-- HEADER -->
+  <!-- HEADER -->
   <header>
-    <div class="title-container">
-      <h1 id="title">IamTheCode - Code for Change</h1>
-      <h2 class="subtitle">Empowering Minds | Building the Future</h2>
-      <h3 class="subtitle">Quirino High School</h3>
+    <div class="header-container">
+      <img src="QHS-logo.jpg" alt="School Logo" class="logo">
+      <img src="iamthecode-logo.jpg" alt="IamTheCode Logo" class="logo">
+      <div class="header-text">
+        <h1>IamTheCode - Code for Change</h1>
+        <h2 class="subtitle">Empowering Minds | Buillding the Future</h2>
+        <h2 class="subtitle">Quirino High School</h2>
+      </div>
     </div>
 
     <nav>
@@ -25,115 +29,119 @@
     </nav>
   </header>
 
-  <div class="divider1"></div>
-  <div class="divider1"></div>
+  <!-- MAIN CONTENT -->
   <main>
     <!-- HOME SECTION -->
     <section id="home" class="active">
-      <h2>About Our Journey</h2>
-      <p>We are students from the IamTheCode program, documenting our learning and linking it with the UN SDGs through coding and creativity.</p>
+      <div class="divider">
+        <h2>About Our Journey</h2>
+        <p>We are students from the IamTheCode program, documenting our learning and linking it with the UN SDGs through coding and creativity. This project represents our teamwork, innovation, and advocacy for a sustainable and equitable future.</p>
 
-      <div class="divider"></div>
+        <h2>Meet Our Team</h2>
 
-      <h2>Meet Our Team</h2>
+        <!-- TEACHER FACILITATOR -->
+        <h3 class="team-category">Teacher Facilitator</h3>
+        <div class="team-row">
+          <div class="team-card" onclick="showBio('Our teacher facilitator, Ms. Maria Theresa B. Baltazar, guided us through our IamTheCode journey and supported every step.')">
+            <img src="images/teacher.jpg" alt="Teacher Facilitator">
+            <h4>Ms. Maria Theresa B. Baltazar</h4>
+            <p>Teacher Facilitator</p>
+          </div>
+        </div>
 
-      <!-- Teacher -->
-     <h3 class="team-category">Teacher Facilitator</h3>
-      <div class="team-row">
-        <div class="team-card" onclick="showBio('Our teacher facilitator, Ms. Maria Theresa B. Baltazar, guided us through our IamTheCode journey and supported every step.')">
-          <img src="images/teacher.jpg" alt="Teacher Facilitator" />
-          <h4>Ms. Maria Theresa B. Baltazar</h4>
-          <p>Teacher Facilitator</p>
+        <!-- TEAM LEADERS -->
+        <h3 class="team-category">Team Leaders</h3>
+        <div class="team-row">
+          <div class="team-card" onclick="showBio('Nathalie leads our coding and SDG research section, ensuring our project aligns with our chosen goal.')">
+            <img src="images/leader1.jpg" alt="Leader 1">
+            <h4>Nathalie R. Arcillas</h4>
+            <p>Team Leader</p>
+          </div>
+
+          <div class="team-card" onclick="showBio('Jonairah manages our project design, layout, and documentation to keep everything on track.')">
+            <img src="images/leader2.jpg" alt="Leader 2">
+            <h4>Jonairah D. Comacasar</h4>
+            <p>Team Leader</p>
+          </div>
+        </div>
+
+        <!-- MEMBERS -->
+        <h3 class="team-category">Members</h3>
+        <div class="team-row">
+          <div class="team-card" onclick="showBio('[name] contributes to research, analysis, and presentation design for the group.')">
+            <img src="images/member1.jpg" alt="Member 1">
+            <h4>[name]</h4>
+            <p>Member</p>
+          </div>
+
+          <div class="team-card" onclick="showBio('[name] helps in building the website layout and writing the content for our IamTheCode journey.')">
+            <img src="images/member2.jpg" alt="Member 2">
+            <h4>[name]</h4>
+            <p>Member</p>
+          </div>
+
+          <div class="team-card" onclick="showBio('Liam[name] assists with JavaScript features and testing our project’s interactivity.')">
+            <img src="images/member3.jpg" alt="Member 3">
+            <h4>[name]</h4>
+            <p>Member</p>
+          </div>
         </div>
       </div>
-
-      <!-- Team Leaders -->
-      <h3 class="team-category">Team Leaders</h3>
-      <div class="team-row">
-        <div class="team-card" onclick="showBio('Nathalie leads our coding and SDG research section.')">
-          <img src="images/leader1.jpg" alt="Team Leader 1" />
-          <h4>Nathalie R. Arcillas</h4>
-          <p>Team Leader</p>
-        </div>
-
-        <div class="team-card" onclick="showBio('Jonairah manages our project design and documentation tasks.')">
-          <img src="images/leader2.jpg" alt="Team Leader 2" />
-          <h4>Jonairah D. Comacasar</h4>
-          <p>Team Leader</p>
-        </div>
-      </div>
-
-      <!-- Members -->
-      <h3 class="team-category">Members</h3>
-      <div class="team-row">
-        <div class="team-card" onclick="showBio('[name] contributes to research and presentation design.')">
-          <img src="images/member1.jpg" alt="Member 1" />
-          <h4>[name]</h4>
-          <p>Member</p>
-        </div>
-
-        <div class="team-card" onclick="showBio('[name] helps with website layout and content writing.')">
-          <img src="images/member2.jpg" alt="Member 2" />
-          <h4>[name]</h4>
-          <p>Member</p>
-        </div>
-
-        <div class="team-card" onclick="showBio('[name] supports coding and testing features for the site.')">
-          <img src="images/member3.jpg" alt="Member 3" />
-          <h4>[name]</h4>
-          <p>Member</p>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-        <h2><i class="fas fa-project-diagram"></i>Overview</h2>
-        <p>
-          [Overview of our website or something about IamTheCode]
-        </p>
-
-        <div class="divider"></div>
-
-        <h2><i class="fas fa-tools"></i> Contact Us</h2>
-        <p>
-          For feedbacks and recommendations, reach out to us at quirinohighschool@gmail.com
-        </p>
     </section>
 
-    <!-- SDG SECTION -->
+    <!-- SDG PROJECT SECTION -->
     <section id="sdg">
-      <h2>Our SDG Project</h2>
-      <p>Our project focuses on <b>SDG #4: Quality Education</b>. We aim to promote equal learning opportunities through coding literacy, empowering students to use technology for a better future.</p>
+      <div class="divider">
+        <h2>Our SDG Project</h2>
+        <p>Our project focuses on <b>SDG #4: Quality Education</b>. We aim to promote equal learning opportunities through coding literacy, empowering students to use technology for a better and sustainable future.</p>
+        <p>We believe that through coding, we can enhance creativity, critical thinking, and collaboration among young learners to prepare them for the digital age.</p>
+      </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS SECTION -->
     <section id="testimonials">
-      <h2>Student Testimonials</h2>
-      <p>Here are some inspiring reflections from our learners.</p>
+      <div class="divider">
+        <h2>Student Testimonials</h2>
+        <p>Here are some inspiring reflections from our learners.</p>
 
-      <div id="testimonial-list">
-        <div class="testimonial">"IamTheCode taught me how powerful coding can be to change the world!" – [name]</div>
-        <div class="testimonial">"Through this journey, I learned teamwork, patience, and purpose." – [name]</div>
-      </div>
+        <div id="testimonial-list">
+          <div class="testimonial">"IamTheCode taught me how powerful coding can be to change the world!" – [name]</div>
+          <div class="testimonial">"Through this journey, I learned teamwork, patience, and purpose." – [name]</div>
+        </div>
 
-      <div class="testimonial-form">
-        <h3>Share Your Thoughts</h3>
-        <textarea id="userTestimonial" placeholder="Write your testimonial..."></textarea>
-        <button onclick="addTestimonial()">Submit</button>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section id="gallery">
-      <h2>Project Gallery</h2>
-      <p>Explore our documentation through images and videos.</p>
-      <div class="gallery-grid">
-        <img src="images/work1.jpg" alt="Project 1">
-        <img src="images/work2.jpg" alt="Project 2">
-        <img src="images/work3.jpg" alt="Project 3">
+        <div class="testimonial-form">
+          <h3>Share Your Thoughts</h3>
+          <textarea id="userTestimonial" placeholder="Write your testimonial..."></textarea>
+          <button onclick="addTestimonial()">Submit</button>
+        </div>
       </div>
     </section>
-  </main>
+
+    <!-- GALLERY SECTION -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <p>Explore our documentation through images and our short video about the IamTheCode journey.</p>
+
+  <!-- PHOTOS PART -->
+  <div class="gallery-photos">
+    <h3>Our Photos</h3>
+    <div class="gallery-grid">
+      <img src="images/work1.jpg" alt="Project Image 1">
+      <img src="images/work2.jpg" alt="Project Image 2">
+      <img src="images/work3.jpg" alt="Project Image 3">
+      <img src="images/work4.jpg" alt="Project Image 4">
+    </div>
+  </div>
+
+  <!-- VIDEO PART -->
+  <div class="gallery-video">
+    <h3>Our Journey Video</h3>
+    <video controls>
+      <source src="videos/journey.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
 
   <!-- BIO POPUP -->
   <div id="bio-popup" class="hidden">
@@ -141,7 +149,8 @@
       <p id="bio-text"></p>
       <button onclick="closeBio()">Close</button>
     </div>
-  </div>
+  </div
+  </section>
 
   <footer>
       <p>"We code for change" - QHS IamTheCode Team</p>
