@@ -15,60 +15,82 @@ body {
   padding: 40px 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #3b0a0a;
-  color: #fff;
+.nav-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 20px 10px;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  justify-content: center; /* centers the header text */
+  padding: 20px 0;
+  background-color: #500303;
+  border-bottom: 2px solid #500303;
 }
 
-/* LOGO GROUP ON THE LEFT */
-.logo-group {
+.divider-line {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, maroon, #c58a6a, maroon);
+  border-radius: 2px;
+}
+
+.divider-line2 {
+  height: 2px;
+  width: 60%;
+  background: linear-gradient(to right, maroon, #c58a6a, maroon);
+  margin: 40px auto;
+  border-radius: 2px;
+}
+
+/* HEADER CONTAINER */
+.header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers the header text */
+  padding: 20px 0;
+  background-color: #500303;
+  border-bottom: 2px solid #500303;
+}
+
+/* LEFT LOGO */
+.logo-left {
   position: absolute;
   left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* LOGO STYLE */
-.logo {
-  width: 70px;
-  height: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
-.logo:hover {
-  transform: scale(1.05);
+/* RIGHT LOGO */
+.logo-right {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.title-container {
+/* CENTERED HEADER TEXT */
+.header-text {
   text-align: center;
 }
 
-header h1 {
+.header-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2em;
+  color: rgb(255, 254, 254);
+  font-size: 2rem;
   margin: 0;
-  letter-spacing: 1px;
 }
 
-.subtitle {
-  font-size: 1em;
-  font-weight: 300;
-  color: #ffcccc;
-  margin: 5px 0 10px;
+.header-text .subtitle {
+  color: #b88a60;
+  font-size: 1rem;
+  margin: 2px;
 }
 
 /* NAVIGATION */
@@ -81,8 +103,8 @@ nav {
 
 nav button {
   background: transparent;
-  border: 2px solid #ffcccc;
-  color: #ffcccc;
+  border: 2px solid #b88a60;
+  color: #b88a60;
   border-radius: 8px;
   padding: 8px 15px;
   cursor: pointer;
@@ -92,13 +114,33 @@ nav button {
 }
 
 nav button:hover {
-  background: #ffcccc;
-  color: #3b0a0a;
+  background: #b88a60;
+  color: #f7f2f2;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .logo-group {
+    left: 15px;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .header-text h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-text .subtitle {
+    font-size: 0.9rem;
+  }
 }
 
 /* MAIN CONTENT */
 main {
-  margin-top: 140px;
+  margin-top: 30px;
   padding: 20px 80px;
   text-align: center;
 }
@@ -299,7 +341,7 @@ footer {
   color: #ffcccc;
   text-align: center;
   padding: 20px 10px;
-  margin-top: 60px;
+  margin-top: 40px;
   font-size: 0.9em;
 }
 
