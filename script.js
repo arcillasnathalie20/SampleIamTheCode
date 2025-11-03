@@ -1,10 +1,29 @@
-// Navigation between sections
-function showSection(sectionId) {
-  const sections = document.querySelectorAll('section');
-  sections.forEach(sec => sec.classList.remove('active'));
-  document.getElementById(sectionId).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+// ===== SECTION NAVIGATION =====
+const navButtons = document.querySelectorAll(".nav-btn");
+const sections = document.querySelectorAll("section");
+
+navButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = button.getAttribute("data-section");
+
+    sections.forEach((section) => {
+      section.classList.remove("active");
+      section.style.display = "none";
+    });
+
+    document.getElementById(target).style.display = "block";
+    document.getElementById(target).classList.add("active");
+
+    // Smooth scroll to top when switching sections
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+// Show home section by default
+document.addEventListener("DOMContentLoaded", () => {
+  sections.forEach((section) => (section.style.display = "none"));
+  document.getElementById("home").style.display = "block";
+});
 
 // Bio popup
 function showBio(text) {
@@ -18,32 +37,57 @@ function closeBio() {
   document.getElementById('bio-popup').classList.remove('show');
 }
 
-// Load testimonials from localStorage
-function loadTestimonials() {
-  const container = document.getElementById('testimonial-list');
-  const saved = JSON.parse(localStorage.getItem('testimonials')) || [];
-  container.innerHTML = '';
-  saved.forEach(t => {
-    const div = document.createElement('div');
-    div.classList.add('testimonial');
-    div.textContent = `"${t}" – Guest`;
-    container.appendChild(div);
+// ===== FAQ INTERACTIVITY =====
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach((question) => {
+  question.addEventListener("click", () => {
+    const answer = question.nextElementSibling;
+    const isOpen = answer.style.display === "block";
+
+    document.querySelectorAll(".faq-answer").forEach((ans) => {
+      ans.style.display = "none";
+    });
+
+    if (!isOpen) {
+      answer.style.display = "block";
+    }
+  });
+});
+
+// ===== TESTIMONIALS (LOCAL STORAGE) =====
+const commentInput = document.getElementById("userComment");
+const submitComment = document.getElementById("submitComment");
+const commentsContainer = document.getElementById("commentsContainer");
+
+function loadComments() {
+  const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+  commentsContainer.innerHTML = "";
+  savedComments.forEach((comment) => {
+    const div = document.createElement("div");
+    div.classList.add("comment");
+    div.textContent = `"${comment}"`;
+    commentsContainer.appendChild(div);
   });
 }
 
-// Add testimonial
-function addTestimonial() {
-  const input = document.getElementById('userTestimonial');
-  const text = input.value.trim();
-  if (!text) return alert('Please write something first!');
-  
-  const saved = JSON.parse(localStorage.getItem('testimonials')) || [];
-  saved.push(text);
-  localStorage.setItem('testimonials', JSON.stringify(saved));
-  
-  input.value = '';
-  loadTestimonials();
-}
+submitComment.addEventListener("click", () => {
+  const comment = commentInput.value.trim();
+  if (comment) {
+    const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+    savedComments.push(comment);
+    localStorage.setItem("comments", JSON.stringify(savedComments));
+    commentInput.value = "";
+    loadComments();
+  } else {
+    alert("Please write a comment before submitting.");
+  }
+});
 
-// Initial load
-window.onload = loadTestimonials;
+window.addEventListener("load", loadComments);
+
+// ===== EXPLORE BUTTON SCROLL =====
+document.getElementById("explore-btn").addEventListener("click", () => {
+  const journeySection = document.getElementById("journey");
+  journeySection.scrollIntoView({ behavior: "smooth" });
+});
