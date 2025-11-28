@@ -6,6 +6,69 @@ function showSection(sectionId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ==============================
+// ACTIVE NAV BUTTON
+// ==============================
+const navButtons = document.querySelectorAll(".nav-links button");
+
+function setActiveNav(sectionId) {
+  navButtons.forEach(btn => btn.classList.remove("active-btn"));
+
+  const activeButton = [...navButtons].find(btn =>
+    btn.getAttribute("onclick").includes(sectionId)
+  );
+
+  if (activeButton) activeButton.classList.add("active-btn");
+}
+
+// Modify your showSection()
+function showSection(sectionId) {
+  const sections = document.querySelectorAll("section");
+  sections.forEach(sec => sec.classList.remove("active"));
+  document.getElementById(sectionId).classList.add("active");
+
+  setActiveNav(sectionId);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ==============================
+// SHRINK NAVBAR ON SCROLL
+// ==============================
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".main-nav");
+  if (window.scrollY > 50) nav.classList.add("shrink");
+  else nav.classList.remove("shrink");
+});
+
+// ==============================
+// MOBILE MENU TOGGLE
+// ==============================
+const menuIcon = document.getElementById("menuIcon");
+const navbarMenu = document.getElementById("navbarMenu");
+const overlay = document.getElementById("menu-overlay");
+
+menuIcon.addEventListener("click", () => {
+  navbarMenu.classList.toggle("show-menu");
+  menuIcon.classList.toggle("open");
+  overlay.classList.toggle("show");
+});
+
+// Close menu when clicking a button
+navButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    navbarMenu.classList.remove("show-menu");
+    menuIcon.classList.remove("open");
+    overlay.classList.remove("show");
+  });
+});
+
+// Close menu when clicking outside
+overlay.addEventListener("click", () => {
+  navbarMenu.classList.remove("show-menu");
+  menuIcon.classList.remove("open");
+  overlay.classList.remove("show");
+});
+
 // Bio popup
 function showBio(text) {
   const popup = document.getElementById('bio-popup');
