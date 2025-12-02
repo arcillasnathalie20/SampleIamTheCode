@@ -111,6 +111,22 @@ function addTestimonial() {
 // Initial load
 window.onload = loadTestimonials;
 
+// Image Popup (Lightbox)
+const galleryImages = document.querySelectorAll(".gallery-img");
+const popup = document.getElementById("img-popup");
+const popupImg = document.getElementById("popup-img");
+
+galleryImages.forEach(img => {
+  img.addEventListener("click", () => {
+    popupImg.src = img.src;
+    popup.classList.add("show");
+  });
+});
+
+function closeImage() {
+  popup.classList.remove("show");
+}
+
 // === FAQ INTERACTIVITY ===
 const faqItems = document.querySelectorAll(".faq-item");
 
