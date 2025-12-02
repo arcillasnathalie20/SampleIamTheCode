@@ -111,21 +111,67 @@ function addTestimonial() {
 // Initial load
 window.onload = loadTestimonials;
 
-// Image Popup (Lightbox)
-const galleryImages = document.querySelectorAll(".gallery-img");
+// === GALLERY LIGHTBOX WITH NAVIGATION ===
+const galleryImgs = document.querySelectorAll(".gallery-img");
 const popup = document.getElementById("img-popup");
 const popupImg = document.getElementById("popup-img");
+const closePopup = document.getElementById("close-popup");
+const prevBtn = document.getElementById("prev-img");
+const nextBtn = document.getElementById("next-img");
 
-galleryImages.forEach(img => {
+let currentIndex = 0;
+
+// Show popup when clicking image
+galleryImgs.forEach((img, index) => {
   img.addEventListener("click", () => {
-    popupImg.src = img.src;
+    currentIndex = index;
+    showImage();
     popup.classList.add("show");
   });
 });
 
-function closeImage() {
-  popup.classList.remove("show");
+// Display selected image
+function showImage() {
+  popupImg.src = galleryImgs[currentIndex].src;
 }
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  popup.classList.remove("show");
+});
+
+// Navigation buttons
+prevBtn.addEventListener("click", (event) => {
+  event.stopPropagation();
+  currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+  showImage();
+});
+
+nextBtn.addEventListener("click", (event) => {
+  event.stopPropagation();
+  currentIndex = (currentIndex + 1) % galleryImgs.length;
+  showImage();
+});
+
+// Close when clicking outside image
+popup.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.classList.remove("show");
+  }
+});
+
+// Keyboard arrows for desktop users
+document.addEventListener("keydown", (e) => {
+  if (!popup.classList.contains("show")) return;
+
+  if (e.key === "ArrowRight") {
+    nextBtn.click();
+  } else if (e.key === "ArrowLeft") {
+    prevBtn.click();
+  } else if (e.key === "Escape") {
+    popup.classList.remove("show");
+  }
+});
 
 // === FAQ INTERACTIVITY ===
 const faqItems = document.querySelectorAll(".faq-item");

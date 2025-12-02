@@ -213,9 +213,6 @@
 
 
       <!-- GALLERY SECTION -->
-  <div id="img-popup" onclick="closeImage()">
-  <img id="popup-img" src="">
-</div>
   <section id="gallery">
     <h2>Gallery</h2>
     <p>Explore our documentation through images and our short video about the IamTheCode journey.</p>
@@ -327,6 +324,17 @@
         <p>© 2025 Quirino High School IamTheCode Team</p>
     </footer>
   <script src="script.js"></script>
+
+   <div id="img-popup">
+    <span id="close-popup">&times;</span>
+
+    <img id="popup-img" src="" alt="Expanded Image">
+
+    <!-- Navigation Buttons -->
+    <button id="prev-img" class="nav-btn">&#10094;</button>
+    <button id="next-img" class="nav-btn">&#10095;</button>
+  </div>
+  
 </body>
 </html>
 
