@@ -752,6 +752,12 @@ body {
     font-size: 0.8rem;
     padding: 15px 5px;
   }
+
+  learn-more-btn
+  {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ==========================================
@@ -775,5 +781,20 @@ body {
   #sdg iframe {
     height: 380px !important;
   }
+}
+
+.btn-link {
+  display: inline-block;
+  background: #7a1c1c;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
+}
+
+.btn-link:hover {
+  background: #b23a48;
 }
 }
