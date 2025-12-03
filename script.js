@@ -6,20 +6,25 @@ function showSection(sectionId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+
 // ==============================
 // ACTIVE NAV BUTTON
 // ==============================
 const navButtons = document.querySelectorAll(".nav-links button");
 
+
 function setActiveNav(sectionId) {
   navButtons.forEach(btn => btn.classList.remove("active-btn"));
+
 
   const activeButton = [...navButtons].find(btn =>
     btn.getAttribute("onclick").includes(sectionId)
   );
 
+
   if (activeButton) activeButton.classList.add("active-btn");
 }
+
 
 // Modify your showSection()
 function showSection(sectionId) {
@@ -27,9 +32,11 @@ function showSection(sectionId) {
   sections.forEach(sec => sec.classList.remove("active"));
   document.getElementById(sectionId).classList.add("active");
 
+
   setActiveNav(sectionId);
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
 
 // ==============================
 // SHRINK NAVBAR ON SCROLL
@@ -40,6 +47,7 @@ window.addEventListener("scroll", () => {
   else nav.classList.remove("shrink");
 });
 
+
 // ==============================
 // MOBILE MENU TOGGLE
 // ==============================
@@ -47,11 +55,13 @@ const menuIcon = document.getElementById("menuIcon");
 const navbarMenu = document.getElementById("navbarMenu");
 const overlay = document.getElementById("menu-overlay");
 
+
 menuIcon.addEventListener("click", () => {
   navbarMenu.classList.toggle("show-menu");
   menuIcon.classList.toggle("open");
   overlay.classList.toggle("show");
 });
+
 
 // Close menu when clicking a button
 navButtons.forEach(btn => {
@@ -62,12 +72,14 @@ navButtons.forEach(btn => {
   });
 });
 
+
 // Close menu when clicking outside
 overlay.addEventListener("click", () => {
   navbarMenu.classList.remove("show-menu");
   menuIcon.classList.remove("open");
   overlay.classList.remove("show");
 });
+
 
 // Bio popup
 function showBio(text) {
@@ -77,9 +89,11 @@ function showBio(text) {
   popup.classList.add('show');
 }
 
+
 function closeBio() {
   document.getElementById('bio-popup').classList.remove('show');
 }
+
 
 // Load testimonials from localStorage
 function loadTestimonials() {
@@ -94,22 +108,25 @@ function loadTestimonials() {
   });
 }
 
+
 // Add testimonial
 function addTestimonial() {
   const input = document.getElementById('userTestimonial');
   const text = input.value.trim();
   if (!text) return alert('Please write something first!');
-  
+ 
   const saved = JSON.parse(localStorage.getItem('testimonials')) || [];
   saved.push(text);
   localStorage.setItem('testimonials', JSON.stringify(saved));
-  
+ 
   input.value = '';
   loadTestimonials();
 }
 
+
 // Initial load
 window.onload = loadTestimonials;
+
 
 // === GALLERY LIGHTBOX WITH NAVIGATION ===
 const galleryImgs = document.querySelectorAll(".gallery-img");
@@ -119,7 +136,9 @@ const closePopup = document.getElementById("close-popup");
 const prevBtn = document.getElementById("prev-img");
 const nextBtn = document.getElementById("next-img");
 
+
 let currentIndex = 0;
+
 
 // Show popup when clicking image
 galleryImgs.forEach((img, index) => {
@@ -130,15 +149,18 @@ galleryImgs.forEach((img, index) => {
   });
 });
 
+
 // Display selected image
 function showImage() {
   popupImg.src = galleryImgs[currentIndex].src;
 }
 
+
 // Close popup
 closePopup.addEventListener("click", () => {
   popup.classList.remove("show");
 });
+
 
 // Navigation buttons
 prevBtn.addEventListener("click", (event) => {
@@ -147,11 +169,13 @@ prevBtn.addEventListener("click", (event) => {
   showImage();
 });
 
+
 nextBtn.addEventListener("click", (event) => {
   event.stopPropagation();
   currentIndex = (currentIndex + 1) % galleryImgs.length;
   showImage();
 });
+
 
 // Close when clicking outside image
 popup.addEventListener("click", (event) => {
@@ -160,9 +184,11 @@ popup.addEventListener("click", (event) => {
   }
 });
 
+
 // Keyboard arrows for desktop users
 document.addEventListener("keydown", (e) => {
   if (!popup.classList.contains("show")) return;
+
 
   if (e.key === "ArrowRight") {
     nextBtn.click();
@@ -173,13 +199,15 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+
 // === FAQ INTERACTIVITY ===
 const faqItems = document.querySelectorAll(".faq-item");
+
 
 faqItems.forEach(item => {
   item.addEventListener("click", () => {
     item.classList.toggle("active");
-    
+   
     // Optionally, close others when opening one
     faqItems.forEach(other => {
       if (other !== item) other.classList.remove("active");
