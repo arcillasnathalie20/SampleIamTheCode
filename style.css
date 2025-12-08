@@ -222,6 +222,12 @@ p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.video-grid1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* TEAM CARDS */
 .team-row {
   display: flex;
