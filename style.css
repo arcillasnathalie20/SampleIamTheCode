@@ -252,6 +252,14 @@ p {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.gallery-img1{
+  width: 700px;
+  height: auto;
+  border: 2px solid #7a1c1c;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 
 .video-grid1 {
   display: flex;
