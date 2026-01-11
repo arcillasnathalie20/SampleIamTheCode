@@ -140,50 +140,6 @@ const nextBtn = document.getElementById("next-img");
 let currentIndex = 0;
 
 
-// Show popup when clicking image
-galleryImgs.forEach((img, index) => {
-  img.addEventListener("click", () => {
-    currentIndex = index;
-    showImage();
-    popup.classList.add("show");
-  });
-});
-
-
-// Display selected image
-function showImage() {
-  popupImg.src = galleryImgs[currentIndex].src;
-}
-
-
-// Close popup
-closePopup.addEventListener("click", () => {
-  popup.classList.remove("show");
-});
-
-
-// Navigation buttons
-prevBtn.addEventListener("click", (event) => {
-  event.stopPropagation();
-  currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
-  showImage();
-});
-
-
-nextBtn.addEventListener("click", (event) => {
-  event.stopPropagation();
-  currentIndex = (currentIndex + 1) % galleryImgs.length;
-  showImage();
-});
-
-
-// Close when clicking outside image
-popup.addEventListener("click", (event) => {
-  if (event.target === popup) {
-    popup.classList.remove("show");
-  }
-});
-
 
 // Keyboard arrows for desktop users
 document.addEventListener("keydown", (e) => {
